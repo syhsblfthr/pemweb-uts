@@ -1,0 +1,79 @@
+/* ===== STYLE FILTER COURSE (Nopal) =====
+   CSS biasa, jadi tidak perlu rebuild Tailwind. Memakai warna dari tema di style.css. */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 11rem;
+}
+.filter-field.filter-search {
+  flex: 1 1 16rem;
+}
+.filter-field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-quaternary, #0b1844);
+}
+.filter-field input,
+.filter-field select {
+  padding: 0.6rem 0.9rem;
+  border: 2px solid var(--color-tertiary-lighter, #8cd1a7);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: var(--color-quaternary, #0b1844);
+  font-weight: 500;
+}
+.filter-field input:focus,
+.filter-field select:focus {
+  outline: none;
+  border-color: var(--color-tertiary, #3fb26d);
+}
+.filter-reset {
+  padding: 0.6rem 1.25rem;
+  border: 2px solid var(--color-tertiary, #3fb26d);
+  border-radius: 0.5rem;
+  color: var(--color-tertiary, #3fb26d);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.filter-reset:hover {
+  background-color: var(--color-tertiary, #3fb26d);
+  color: #fff;
+}
+
+/* ===== UKURAN KARTU COURSE (diperkecil lewat CSS, tanpa mengubah courses.js) =====
+   Gambar course asalnya h-44 (11rem) dan grid 3 kolom. Di sini jadi 4 kolom dan tinggi gambar 8rem.
+   Selector memakai ID supaya menang dari kelas Tailwind di courses.js. */
+#course-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+#course-list img {
+  height: 8rem;
+}
+@media (max-width: 1024px) {
+  #course-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  #course-list { grid-template-columns: 1fr; }
+}
+
+/* ===== DESKRIPSI COURSE (Nopal) ===== */
+.course-desc {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: rgb(11 24 68 / 0.75);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
