@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillUp Academy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="filter.css">
 </head>
 <body class="">
-    <nav class="px-16 flex justify-between items-center fixed top-0 left-0 h-20 w-full">
+    <nav class="px-16 flex justify-between items-center top-0 left-0 h-20 w-full">
         <div class="flex items-center gap-x-2">
             <img class="h-12 -rotate-45" src="assets/logo.svg" alt="">
             <a class="font-bold text-xl text-quaternary" href="#">SkillUp <span class="text-tertiary">Academy</span></a>
@@ -35,7 +36,7 @@
     </nav>
     
     <main>
-        <section class="px-16 h-dvh bg-primary flex justify-between items-center gap-x-16">
+        <section class="px-16 pt-20 h-dvh bg-primary flex justify-between items-center gap-x-16">
             <div class="flex flex-col gap-y-6 w-1/2">
                 <div class="flex flex-col gap-y-2">
                     <div class="bg-linear-to-r from-secondary to-secondary-lighter w-fit px-4 py-2 rounded-full">
@@ -102,5 +103,51 @@
     <script src="courses.js"></script>
     <!-- [Nopal] Logika filter course (harus setelah courses.js) -->
     <script src="filter.js"></script>
+
+    <!-- [Khalis] ===== MODAL DETAIL COURSE ===== -->
+    <div id="course-modal" class="fixed inset-0 z-50 hidden flex justify-center items-center bg-quaternary/50 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div id="modal-content" class="bg-white w-11/12 max-w-2xl rounded-2xl shadow-2xl overflow-hidden relative transform scale-95 transition-transform duration-300">
+            
+            <!-- Tombol Tutup -->
+            <button id="close-modal" class="absolute top-4 right-4 z-10 bg-white/80 hover:bg-white text-quaternary p-2 rounded-full shadow-sm cursor-pointer transition-colors" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            
+            <!-- Header Gambar -->
+            <div class="relative h-64 w-full">
+                <img id="modal-img" class="w-full h-full object-cover" src="" alt="Detail Course" loading="lazy">
+                <div id="modal-badge" class="absolute top-4 left-4"></div>
+            </div>
+            
+            <!-- Konten Detail -->
+            <div class="p-8 flex flex-col gap-y-4">
+                <div class="flex flex-wrap justify-between items-center gap-2 text-sm">
+                    <div class="flex gap-x-2">
+                        <span id="modal-kategori" class="bg-secondary-lighter text-quaternary font-semibold px-3 py-1 rounded-full"></span>
+                        <span id="modal-level" class="border border-quaternary/20 text-quaternary font-medium px-3 py-1 rounded-full"></span>
+                    </div>
+                    <span class="text-quaternary/70 font-medium flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span id="modal-durasi"></span>
+                    </span>
+                </div>
+                
+                <div class="mt-2">
+                    <h3 id="modal-title" class="font-bold text-3xl text-quaternary mb-3"></h3>
+                    <p id="modal-deskripsi" class="text-quaternary/80 leading-relaxed text-base"></p>
+                </div>
+                
+                <div class="flex justify-between items-center mt-6 pt-6 border-t border-quaternary/10">
+                    <div class="flex flex-col">
+                        <span class="text-sm text-quaternary/70 mb-1">Harga Course</span>
+                        <span id="modal-harga" class="font-bold text-tertiary text-2xl"></span>
+                    </div>
+                    <button class="bg-tertiary text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-tertiary/30 cursor-pointer transition duration-300 hover:opacity-90" type="button">
+                        Daftar Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
