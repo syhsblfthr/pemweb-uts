@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="">
-    <nav class="px-16 flex justify-between items-center fixed top-0 left-0 h-20 w-full bg-primary z-50">
+    <nav class="px-16 flex justify-between items-center fixed top-0 left-0 h-20 w-full">
         <div class="flex items-center gap-x-2">
             <img class="h-12 -rotate-45" src="assets/logo.svg" alt="">
             <a class="font-bold text-xl text-quaternary" href="#">SkillUp <span class="text-tertiary">Academy</span></a>
@@ -20,7 +20,7 @@
                 <a class="text-quaternary" href="#">Instructors</a>
             </li>
             <li>
-                <a class="text-quaternary" href="#courses">Courses</a>
+                <a class="text-quaternary" href="#">Courses</a>
             </li>
             <li>
                 <a class="text-quaternary" href="#">FAQ</a>
@@ -35,7 +35,7 @@
     </nav>
     
     <main>
-        <section class="px-16 min-h-dvh pt-24 bg-primary flex justify-between items-center gap-x-16">
+        <section class="px-16 h-dvh bg-primary flex justify-between items-center gap-x-16">
             <div class="flex flex-col gap-y-6 w-1/2">
                 <div class="flex flex-col gap-y-2">
                     <div class="bg-linear-to-r from-secondary to-secondary-lighter w-fit px-4 py-2 rounded-full">
@@ -59,31 +59,48 @@
             </div>
         </section>
 
-     
-        <section id="courses" class="scroll-mt-20 px-6 md:px-16 py-20 bg-primary">
-            <header class="flex flex-col gap-y-2 mb-10">
-                <h2 class="font-bold text-quaternary text-3xl md:text-5xl">Pilih Kelas yang Sesuai Kebutuhanmu</h2>
-                <p class="text-quaternary/70 text-lg">Dari pemula sampai mahir, pilih course yang cocok dengan tujuanmu.</p>
-            </header>
+        <!-- ===== SECTION COURSE ===== -->
+        <section id="courses" class="px-16 py-20 bg-primary">
+            <!-- [Salsa] Wadah daftar course (diisi oleh courses.js lewat renderCourses) -->
+            <h2 class="font-bold text-quaternary text-4xl mb-2">Pilih <span class="text-tertiary">Course</span> Kamu</h2>
+            <p class="text-quaternary/70 mb-8">Cari berdasarkan kata kunci, kategori, atau tingkat kesulitan.</p>
 
-           
-            <div id="filter-area" class="mb-6"></div>
+            <!-- [Nopal] Filter course: cari kata kunci, kategori, dan tingkat kesulitan -->
+            <div class="filter-bar">
+                <div class="filter-field filter-search">
+                    <label for="search-input">Cari course</label>
+                    <input id="search-input" type="search" placeholder="Cari nama, kategori, atau topik...">
+                </div>
+                <div class="filter-field">
+                    <label for="filter-kategori">Kategori</label>
+                    <select id="filter-kategori">
+                        <option value="">Semua kategori</option>
+                    </select>
+                </div>
+                <div class="filter-field">
+                    <label for="filter-level">Tingkat kesulitan</label>
+                    <select id="filter-level">
+                        <option value="">Semua level</option>
+                    </select>
+                </div>
+                <button id="filter-reset" class="filter-reset" type="button">Reset</button>
+            </div>
+            <!-- [Nopal] Akhir filter course -->
 
+            <!-- [Salsa] Jumlah, daftar kartu, dan pesan kosong (dipakai courses.js) -->
             <p id="course-count" class="text-sm text-quaternary/70 mb-4"></p>
-
-           
-            <div id="course-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-       
-            <p id="course-empty" class="hidden text-center text-quaternary/70 py-10">Course tidak ditemukan. Coba ubah kata kunci atau filter.</p>
+            <div id="course-list" class="grid grid-cols-3 gap-8"></div>
+            <p id="course-empty" class="hidden text-center text-quaternary font-medium py-16">Course tidak ditemukan. Coba ubah kata kunci atau filter.</p>
         </section>
-       
     </main>
 
     <footer>
 
     </footer>
 
+    <!-- [Salsa] Data & tampilan kartu course -->
     <script src="courses.js"></script>
+    <!-- [Nopal] Logika filter course (harus setelah courses.js) -->
+    <script src="filter.js"></script>
 </body>
 </html>
