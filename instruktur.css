@@ -1,0 +1,325 @@
+/* CSS section instruktur — tempel di input.css (setelah @theme),
+   lalu jalankan build seperti biasa. Atau tempel di akhir style.css. */
+
+/* ============================================================
+   SECTION INSTRUKTUR — nama class pakai bahasa Indonesia
+============================================================ */
+
+/* --- Pengaturan cepat (ubah angka di sini) --- */
+/* Jumlah kartu yang tampak sekaligus:
+   HP / zoom besar  = 1 kartu
+   layar >= 700px   = 2 kartu
+   layar >= 1100px  = 6 kartu                                  */
+
+/* Klik menu navbar meluncur halus ke section */
+html { scroll-behavior: smooth; }
+
+.bagian-instruktur {
+  background: var(--color-primary);
+  color: var(--color-quaternary);
+  padding: 80px 64px;   /* sama dengan section lain: py-20 px-16 */
+  min-height: 100dvh;   /* section paling bawah: agar judul bisa naik ke atas layar saat menu diklik */
+  font-size: 14px;
+}
+
+.wadah {
+  width: 100%;
+}
+
+.judul-tersembunyi {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.sembunyi { display: none !important; }
+
+/* --- Baris kontrol: cari, kategori, urutkan --- */
+.baris-kontrol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.kelompok-kiri {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.kelompok-kanan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.kotak {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.isian,
+.pilihan {
+  width: 100%;
+  height: 36px;
+  padding: 0 36px 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-quaternary);
+  font-size: 12px;
+}
+.pilihan {
+  appearance: none;
+  -webkit-appearance: none;
+  font-weight: 500;
+}
+.isian::placeholder { color: #9ca3af; }
+.isian:focus,
+.pilihan:focus {
+  outline: 2px solid var(--color-tertiary-lighter);
+  border-color: var(--color-tertiary);
+}
+.ikon-kanan {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-quaternary);
+}
+.tombol-geser {
+  display: flex;
+  gap: 8px;
+}
+
+/* --- Daftar kartu: bisa digeser (slide) --- */
+.daftar-kartu {
+  --jumlah: 1;      /* jumlah kartu yang tampak */
+  --jarak: 16px;    /* jarak antar kartu */
+  display: flex;
+  gap: var(--jarak);
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-tertiary-lighter) transparent;
+}
+
+.kartu {
+  flex: 0 0 calc((100% - (var(--jumlah) - 1) * var(--jarak)) / var(--jumlah));
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--color-secondary-lighter);
+}
+.info-angka {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #6b7280;
+}
+.info-angka span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ikon-kecil {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.nama {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.keahlian {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.bintang {
+  width: 12px;
+  height: 12px;
+  color: var(--color-tertiary);
+}
+
+/* --- Tampilan kosong --- */
+.kosong {
+  padding: 64px 0;
+  text-align: center;
+}
+.kosong-judul {
+  font-size: 16px;
+  font-weight: 600;
+}
+.kosong-teks {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+.tombol-reset {
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--color-secondary-lighter);
+  color: var(--color-quaternary);
+  font-size: 12px;
+  font-weight: 500;
+}
+.tombol-reset:hover { background: var(--color-secondary); }
+
+.tombol-halaman {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #4b5563;
+  font-size: 12px;
+}
+.tombol-halaman:hover { background: var(--color-secondary-lighter); }
+.panah-halaman {
+  width: 36px;
+  border: 1px solid var(--color-tertiary-lighter);
+  background: var(--color-secondary-lighter);
+  color: var(--color-quaternary);
+}
+.panah-halaman:hover { background: var(--color-secondary); }
+.tombol-halaman:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.panah-halaman:disabled:hover { background: var(--color-secondary-lighter); }
+.putar { transform: rotate(180deg); }
+
+.tombol-halaman:focus-visible,
+.tombol-reset:focus-visible {
+  outline: 2px solid var(--color-tertiary);
+  outline-offset: 2px;
+}
+
+/* --- HP / layar kecil: kurangi jarak tepi --- */
+@media (max-width: 699px) {
+  .bagian-instruktur { padding: 48px 16px; }
+}
+
+/* --- Layar sedang (>= 700px): 2 kartu --- */
+@media (min-width: 700px) {
+  .baris-kontrol {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .kelompok-kiri { flex-direction: row; align-items: center; }
+  .kelompok-kanan { justify-content: flex-end; }
+  .kotak-cari { width: 224px; }
+  .kotak-kategori { width: 160px; }
+      .daftar-kartu { --jumlah: 2; }
+}
+
+/* --- Layar lebar (>= 1100px): 6 kartu --- */
+@media (min-width: 1100px) {
+  .daftar-kartu { --jumlah: 6; }
+}
+
+/* --- HP Android / layar sentuh di bawah 700px: 2 kartu --- */
+@media (max-width: 699px) and (pointer: coarse) {
+  .daftar-kartu { --jumlah: 2; }
+}
+
+/* --- Tombol kontak: WhatsApp & sosmed --- */
+.kontak {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.tombol-wa {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  border: 1px solid var(--color-tertiary-lighter);
+  border-radius: 6px;
+  background: var(--color-secondary-lighter);
+  color: var(--color-quaternary);
+  font-size: 12px;
+  font-weight: 600;
+}
+.tombol-wa:hover { background: var(--color-secondary); }
+.tombol-sosmed {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-quaternary);
+}
+.tombol-sosmed:hover {
+  border-color: var(--color-tertiary-lighter);
+  background: var(--color-secondary-lighter);
+}
+.ikon-kontak {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.tombol-wa:focus-visible,
+.tombol-sosmed:focus-visible {
+  outline: 2px solid var(--color-tertiary);
+  outline-offset: 2px;
+}
+
+/* --- Rating + tombol Ikuti Kursus --- */
+.baris-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+.baris-rating .rating { margin-top: 0; }
+.tombol-ikuti {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-tertiary);
+  color: var(--color-quaternary);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tombol-ikuti:hover { background: var(--color-tertiary-lighter); }
+.tombol-ikuti:focus-visible {
+  outline: 2px solid var(--color-quaternary);
+  outline-offset: 2px;
+}
