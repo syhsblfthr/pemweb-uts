@@ -6,6 +6,7 @@
     <title>SkillUp Academy</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="filter.css">
+    <link rel="stylesheet" href="instruktur.css">
 </head>
 <body class="">
     <nav class="px-16 flex justify-between items-center top-0 left-0 h-20 w-full">
@@ -18,7 +19,7 @@
                 <a class="text-quaternary" href="#">Home</a>
             </li>
             <li>
-                <a class="text-quaternary" href="#">Instructors</a>
+                <a class="text-quaternary" href="#instruktur">Instructors</a>
             </li>
             <li>
                 <a class="text-quaternary" href="#">Courses</a>
@@ -149,5 +150,58 @@
             </div>
         </div>
     </div>
+
+    <!-- ===== SECTION INSTRUKTUR ===== -->
+    <section id="instruktur" class="bagian-instruktur" aria-labelledby="judul-instruktur">
+        <div class="wadah">
+            <h2 id="judul-instruktur" class="font-bold text-quaternary text-4xl mb-2">Our <span class="text-tertiary">Instructors</span></h2>
+            <p class="text-quaternary/70 mb-8">Belajar langsung dari para profesional di bidangnya.</p>
+ 
+            <!-- Kontrol: cari, kategori, tombol geser -->
+            <div class="baris-kontrol">
+                <div class="kelompok-kiri">
+                    <label class="kotak kotak-cari">
+                        <span class="judul-tersembunyi">Search instructor</span>
+                        <input id="kolom-cari" class="isian" type="search" placeholder="Search instructor" autocomplete="off">
+                        <svg class="ikon-kanan" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    </label>
+ 
+                    <label class="kotak kotak-kategori">
+                        <span class="judul-tersembunyi">Category</span>
+                        <select id="pilih-kategori" class="pilihan">
+                            <option value="semua">Category</option>
+                        </select>
+                        <svg class="ikon-kanan" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+                    </label>
+                </div>
+ 
+                <div class="kelompok-kanan">
+                    <div class="tombol-geser">
+                        <button id="geser-kiri" type="button" class="tombol-halaman panah-halaman" aria-label="Geser ke kiri">
+                            <svg class="ikon-kecil" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+                        </button>
+                        <button id="geser-kanan" type="button" class="tombol-halaman panah-halaman" aria-label="Geser ke kanan">
+                            <svg class="ikon-kecil putar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Daftar kartu (diisi oleh instructor.js) -->
+            <div id="daftar-kartu" class="daftar-kartu" aria-live="polite"></div>
+ 
+            <!-- Tampilan kosong -->
+            <div id="tampilan-kosong" class="kosong sembunyi">
+                <p class="kosong-judul">No instructors found</p>
+                <p class="kosong-teks">Coba nama, keahlian, atau kategori lain.</p>
+                <button id="tombol-reset" type="button" class="tombol-reset">Clear filters</button>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Data & fitur instruktur -->
+    <script src="instructor.js" defer></script>
+ 
+
 </body>
 </html>
