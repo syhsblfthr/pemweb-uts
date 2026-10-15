@@ -31,7 +31,9 @@
         <div class="flex items-center gap-x-5">
             <img class="h-8" src="assets/search.svg" alt="">
             <button class="bg-tertiary px-6 py-2 rounded-lg text-white" type="button">
-                <span>Daftar Sekarang</span>
+                <a href="#pendaftaran" class="bg-tertiary px-6 py-2 rounded-lg text-white inline-block text-center hover:opacity-95 transition">
+        <span>Daftar Sekarang</span>
+    </a>
             </button>
         </div>
     </nav>
@@ -201,6 +203,67 @@
  
     <!-- Data & fitur instruktur -->
     <script src="instructor.js" defer></script>
+
+    <!-- Section Pendaftaran -->
+<!-- Tambahkan id="pendaftaran" di sini -->
+<section id="pendaftaran" class="registration-section">
+  <div class="registration-container">
+    
+    <!-- Kolom Kiri: Form Pendaftaran -->
+    <div class="registration-content">
+      <span class="badge">DAFTAR SEKARANG</span>
+      <h2 class="title">Mulai Perjalanan Belajarmu Sekarang</h2>
+      <p class="subtitle">
+        Isi formulir di bawah ini untuk mendaftar kursus pilihanmu.<br>
+        Kami akan segera menghubungimu melalui email.
+      </p>
+
+      <form id="registrationForm" class="registration-form">
+        <!-- Nama Lengkap -->
+        <div class="form-group">
+          <label for="fullName">Nama Lengkap <span class="required">*</span></label>
+          <input type="text" id="fullName" name="fullName" placeholder="Masukkan nama lengkap" required />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="contoh@email.com" required />
+        </div>
+
+        <!-- Pilih Kursus -->
+        <div class="form-group">
+          <label for="courseSelect">Pilih Kursus <span class="required">*</span></label>
+          <div class="select-wrapper">
+            <select id="courseSelect" name="courseSelect" required>
+              <option value="" disabled selected>Pilih kursus</option>
+              <option value="web-dev">Web Development</option>
+              <option value="ui-ux">UI/UX Design</option>
+              <option value="data-science">Data Science</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Pesan (Opsional) -->
+        <div class="form-group">
+          <label for="message">Pesan (Opsional)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Tulis pesan atau pertanyaan..."></textarea>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit" class="btn-submit">
+          Daftar Sekarang &rarr;
+        </button>
+      </form>
+    </div>
+
+    <!-- Kolom Kanan: Ilustrasi / Gambar -->
+    <div class="registration-illustration">
+      <img src="" alt="Ilustrasi seseorang sedang belajar di depan laptop" class="illustration-img" />
+    </div>
+
+  </div>
+</section>
  
 
 </body>
