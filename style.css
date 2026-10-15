@@ -1097,3 +1097,166 @@
     }
   }
 }
+
+/* Background & Layout Utama */
+.registration-section {
+  background-color: #eaf6ee; /* Hijau lembut seragam dengan latar belakang gambar */
+  padding: 60px 20px;
+  font-family: sans-serif;
+  color: #1a2b3c;
+}
+
+.registration-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Kolom Kiri */
+.registration-content {
+  flex: 1;
+  max-width: 520px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #c3ebd2;
+  color: #1b6a43;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f2d4a;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #556b7d;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+/* Form & Input */
+.registration-form .form-group {
+  margin-bottom: 16px;
+}
+
+.registration-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334e68;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #e53e3e;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #2d3748;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.registration-form input::placeholder,
+.registration-form textarea::placeholder {
+  color: #a0aec0;
+}
+
+.registration-form input:focus,
+.registration-form select:focus,
+.registration-form textarea:focus {
+  border-color: #2b9361;
+}
+
+.registration-form textarea {
+  resize: vertical;
+}
+
+/* Custom Select Dropdown Arrow */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.select-wrapper::after {
+  content: '▾';
+  font-size: 14px;
+  color: #4a5568;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Tombol Submit */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #23905c;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #1b7349;
+}
+
+/* Kolom Kanan / Gambar */
+.registration-illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsif untuk Layar HP/Tablet */
+@media (max-width: 768px) {
+  .registration-container {
+    flex-direction: column;
+  }
+  
+  .registration-content {
+    max-width: 100%;
+  }
+}
